@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grill Restaurant - Kasir</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Ikon dari Flaticon UIcons: https://www.flaticon.com/uicons -->
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">sariwina</div>
+      <nav class="side-nav">
+        <a href="#" class="side-link active"><i class="fi fi-rr-utensils"></i> Menu Makanan</a>
+      </nav>
+    </aside>
+
+    <!-- Daftar Menu -->
+    <main class="main">
+      <header class="header">
+        <p class="date"><i class="fi fi-rr-calendar"></i> <span id="today"></span></p>
+        <h1>Restaurant</h1>
+      </header>
+
+      <div class="section-title">
+        <h2>Pilih Menu</h2>
+      </div>
+
+      <div class="categories" id="categories"></div>
+
+      <div class="menu-grid" id="menuGrid"></div>
+    </main>
+
+    <!-- Pesanan -->
+    <aside class="order">
+      <h2><i class="fi fi-rr-receipt"></i> Pesanan Saya</h2>
+
+      <div class="order-list" id="orderList"></div>
+
+      <div class="summary">
+        <div class="row">
+          <span>Subtotal (<span id="itemCount">0</span> item)</span>
+          <span class="green" id="subtotal">Rp 0</span>
+        </div>
+        <div class="row">
+          <label for="discount">Diskon (%)</label>
+          <input type="number" id="discount" min="0" max="100" value="0">
+        </div>
+        <p class="field-error" id="discountError"></p>
+        <div class="row">
+          <span>Potongan</span>
+          <span class="red" id="discountAmount">-Rp 0</span>
+        </div>
+        <div class="row total">
+          <span>Total Bayar</span>
+          <span class="green" id="total">Rp 0</span>
+        </div>
+      </div>
+
+      <div class="payment">
+        <h3><i class="fi fi-rr-wallet"></i> Pembayaran</h3>
+        <input type="number" id="cash" min="0" placeholder="Masukkan uang bayar">
+        <p class="field-error" id="cashError"></p>
+        <div class="quick-cash" id="quickCash">
+          <button data-cash="exact">Uang Pas</button>
+          <button data-cash="50000">50rb</button>
+          <button data-cash="100000">100rb</button>
+          <button data-cash="200000">200rb</button>
+        </div>
+        <div class="row change">
+          <span>Kembalian</span>
+          <span id="change">Rp 0</span>
+        </div>
+        <p class="message" id="message"></p>
+        <button class="checkout" id="checkout"><i class="fi fi-rr-credit-card"></i> Checkout</button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Struk -->
+  <div class="modal" id="modal">
+    <div class="receipt">
+      <h3><i class="fi fi-sr-check-circle"></i> Pembayaran Berhasil</h3>
+      <div id="receiptBody"></div>
+      <button class="checkout" id="newOrder"><i class="fi fi-rr-shopping-cart"></i> Pesanan Baru</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
